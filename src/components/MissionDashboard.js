@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import { Text, View, KeyboardAvoidingView, Image, Switch, ScrollView } from 'react-native';
+import {
+	Text,
+	View,
+	KeyboardAvoidingView,
+	ImageBackground,
+	Switch,
+	ScrollView,
+} from 'react-native';
 import { connect } from 'react-redux';
 import { Button, Card, Input, CardSection } from './common/index';
 import { logRun } from '../reducers/RunState';
@@ -10,7 +17,6 @@ import { convertSecondsToPaceString } from './Utilities/Utilities';
 import moment from 'moment';
 
 import ProgressBar from 'react-native-progress/Bar';
-import BackgroundTimer from 'react-native-background-timer';
 import BackgroundGeolocation from "react-native-background-geolocation";
 global.BackgroundGeolocation = BackgroundGeolocation;
 
@@ -278,19 +284,19 @@ class MissionDashboard extends Component {
 	toggleTimer() {
 		let toggleVal = !this.state.timerOn;
 		if (toggleVal) {
-			this.timerID = BackgroundTimer.setInterval(
+			this.timerID = setInterval(
 		      () => this.tick(),
-		      10
+		      1000
 		    );
 		} else {
-			BackgroundTimer.clearInterval(this.timerID);
+			clearInterval(this.timerID);
 		}
 		this.setState({timerOn: toggleVal})
 	}
 
 	stopTimer() {
 		if (this.state.timerOn) {
-			BackgroundTimer.clearInterval(this.timerID);
+			clearInterval(this.timerID);
 			this.setState({timerOn: false})
 		}
 	}
@@ -554,7 +560,7 @@ class MissionDashboard extends Component {
     const backgroundColor = this.state.timerOn ? '#fcffaf' : "#d5d6cf";
 
 		return (
-			<Image source={require('../images/background.png')} style={styles.container}>
+			<ImageBackground source={require('../images/background.png')} style={styles.container}>
         <KeyboardAvoidingView behavior='padding'>
   			<ScrollView>
 
@@ -708,7 +714,7 @@ class MissionDashboard extends Component {
 	         +{this.state.totalPowerGenerated} POWER</Text>
 	    </ConfirmationModal>
 
-			</Image>
+			</ImageBackground>
 			);
 	};
 }

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ListView, Text, Image, View } from 'react-native';
+import { ListView, Text, ImageBackground, View } from 'react-native';
 import { fetchRuns } from '../reducers/RunState';
 import { fetchUser } from '../reducers/UserState';
 import { Card, CardSection } from './common';
@@ -55,7 +55,7 @@ class RunList extends Component {
 
   render() {
     return (
-    <Image source={require('../images/background.png')} style={styles.container}>
+    <ImageBackground source={require('../images/background.png')} style={styles.container}>
 
     <Card>
       <CardSection style={styles.cardHeader}>
@@ -79,7 +79,7 @@ class RunList extends Component {
       dataSource={this.dataSource}
       renderRow={this.renderRow}
     />
-    </Image>
+    </ImageBackground>
     );
   }
 }

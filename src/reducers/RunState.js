@@ -1,4 +1,3 @@
-import { Actions } from 'react-native-router-flux';
 import firebase from 'firebase';
 
 const INITIAL_STATE = {

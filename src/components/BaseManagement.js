@@ -1,7 +1,6 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text, Image, View, TouchableOpacity, ScrollView, Modal } from 'react-native';
+import { Text, ImageBackground, View, ScrollView, Modal } from 'react-native';
 import { updatePiece, updateUser, updateFaction } from '../reducers/UserState';
 import { fetchUser } from '../reducers/UserState';
 import { fetchRuns } from '../reducers/RunState';
@@ -70,7 +69,7 @@ class BaseManagement extends Component {
       const sidequestPack = this.props.user.availableSidequests[key];
       if (!sidequestPack.purchased) {
         return (
-          <CardSection>
+          <CardSection key={key}>
             <Button 
               disabled={this.shouldBeDisabled(this.props.user.totalPower, sidequestPack.cost)}
               onPress={() => this.selectSidequestPack(key)}>
@@ -79,7 +78,7 @@ class BaseManagement extends Component {
           </CardSection>)
       } else {
         return (
-          <CardSection>
+          <CardSection key={key}>
             <Button 
               disabled={true}
               onPress={() => {}}>
@@ -155,18 +154,22 @@ class BaseManagement extends Component {
   renderShields() {
     let output = [];
     for (let i = 0; i < this.state.base.HP; i++) {
-      output.push(<Icon
+      output.push(
+      <Icon
+        key={"icon" + i}
         style={{padding: 3}} 
         size={30}
         color="#ff419c"
-        name="sun-o"/>)
+        name="sun-o"
+        />
+      )
     }
     return output;
   }
 
   render() {
     return (
-    <Image source={require('../images/background.png')} style={styles.container}>
+    <ImageBackground source={require('../images/background.png')} style={styles.container}>
       <ScrollView
         automaticallyAdjustContentInsets={false}
         style={styles.container}>
@@ -261,7 +264,7 @@ class BaseManagement extends Component {
       </View>
     </Modal>
     
-    </Image>
+    </ImageBackground>
 
     );
   }

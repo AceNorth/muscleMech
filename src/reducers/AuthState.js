@@ -1,4 +1,3 @@
-import { createUser } from './UserState';
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 

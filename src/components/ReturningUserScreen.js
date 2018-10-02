@@ -8,7 +8,8 @@ import {
 	updatePiece,
 	addPiece
 } from '../reducers/UserState';
-import { generateBase,
+import {
+  generateBase,
   generateAttack,
   generateDiplomacy,
   buildBoss
@@ -59,8 +60,8 @@ class ReturningUserScreen extends Component {
   			user,
   			secondsSinceLastLogin,
   			updated: true,
-  			 });
-  		}
+  		});
+  	}
 	}
 
 	triggerEvent(user) {

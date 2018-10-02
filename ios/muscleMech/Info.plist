@@ -49,7 +49,7 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>MUSCLE MECH needs permission to background monitor your location in order to work in phone lock mode!</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSMotionUsageDescription</key>
 	<string>MUSCLE MECH needs to use motion data to preserve your battery life!</string>
 	<key>UIAppFonts</key>
@@ -64,6 +64,7 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>Feather.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

@@ -370,6 +370,12 @@ babel-plugin-check-es2015-constants@^6.5.0, babel-plugin-check-es2015-constants@
   dependencies:
     babel-runtime "^6.22.0"
 
+babel-plugin-dotenv@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-dotenv/-/babel-plugin-dotenv-0.1.1.tgz#9c8faea67a7c034fe7e94099187ab2e7573400bc"
+  dependencies:
+    dotenv "^2.0.0"
+
 babel-plugin-external-helpers@^6.18.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-external-helpers/-/babel-plugin-external-helpers-6.22.0.tgz#2285f48b02bd5dede85175caf8c62e86adccefa1"
@@ -866,6 +872,10 @@ base64-js@1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.1.2.tgz#d6400cac1c4c660976d90d07a04351d89395f5e8"
 
+base64-js@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.2.0.tgz#a39992d723584811982be5e290bb6a53d86700f1"
+
 base64-js@^1.1.2:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.2.1.tgz#a91947da1f4a516ea38e5b4ec0ec3773675e0886"
@@ -1088,6 +1098,10 @@ clone@^1.0.0:
 co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
+
+cocoa-lumberjack@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/cocoa-lumberjack/-/cocoa-lumberjack-3.0.5.tgz#0b29683272ad426974a2c71c86d4de9a81029e6d"
 
 code-point-at@^1.0.0:
   version "1.1.0"
@@ -1372,6 +1386,14 @@ dom-walk@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/dom-walk/-/dom-walk-0.1.1.tgz#672226dc74c8f799ad35307df936aba11acd6018"
 
+dotenv@^2.0.0:
+  version "2.0.0"
+  resolved "http://registry.npmjs.org/dotenv/-/dotenv-2.0.0.tgz#bd759c357aaa70365e01c96b7b0bec08a6e0d949"
+
+dotenv@^4.0.0:
+  version "4.0.0"
+  resolved "http://registry.npmjs.org/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
+
 duplexer2@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/duplexer2/-/duplexer2-0.0.2.tgz#c614dcf67e2fb14995a91711e5a617e8a60a31db"
@@ -1543,6 +1565,10 @@ fancy-log@^1.1.0:
 fast-levenshtein@~2.0.4:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
+
+fast-plist@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/fast-plist/-/fast-plist-0.1.2.tgz#a45aff345196006d406ca6cdcd05f69051ef35b8"
 
 faye-websocket@0.9.3:
   version "0.9.3"
@@ -3323,6 +3349,14 @@ plist@^1.2.0:
     xmlbuilder "4.0.0"
     xmldom "0.1.x"
 
+plist@^2.0.1:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/plist/-/plist-2.1.0.tgz#57ccdb7a0821df21831217a3cad54e3e146a1025"
+  dependencies:
+    base64-js "1.2.0"
+    xmlbuilder "8.2.2"
+    xmldom "0.1.x"
+
 prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
@@ -3438,9 +3472,23 @@ react-devtools-core@2.3.1:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
-react-native-background-timer@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/react-native-background-timer/-/react-native-background-timer-1.2.0.tgz#fd951f93e5c70ec899a5fb4285e1270d0e8b9fb2"
+react-native-background-fetch@~2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/react-native-background-fetch/-/react-native-background-fetch-2.4.3.tgz#4621cca2a8f9e96edbf0556afcd04873bd698f37"
+  dependencies:
+    fast-plist "^0.1.2"
+    plist "^2.0.1"
+    xcode "^0.9.1"
+
+react-native-background-geolocation@^2.13.4:
+  version "2.13.4"
+  resolved "https://registry.yarnpkg.com/react-native-background-geolocation/-/react-native-background-geolocation-2.13.4.tgz#a1e709f07d3e27783e85ba150fe03a7a57a5b3f1"
+  dependencies:
+    cocoa-lumberjack "^3.0.5"
+    fast-plist "^0.1.2"
+    plist "^2.0.1"
+    react-native-background-fetch "~2.4.3"
+    xcode "^0.9.1"
 
 react-native-button@^2.0.0:
   version "2.1.0"
@@ -3455,6 +3503,12 @@ react-native-communications@^2.2.1:
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
+
+react-native-dotenv@^0.1.0:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-dotenv/-/react-native-dotenv-0.1.1.tgz#95a943dbaba24ddf50e95bd861e5a0c4ab03a38d"
+  dependencies:
+    babel-plugin-dotenv "0.1.1"
 
 react-native-drawer-layout-polyfill@^1.3.2:
   version "1.3.2"

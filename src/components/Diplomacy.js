@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ScrollView, Text, Image, View } from 'react-native';
+import { ScrollView, Text, ImageBackground } from 'react-native';
 import { Card, CardSection } from './common';
 
 class Diplomacy extends Component {
@@ -43,7 +43,7 @@ class Diplomacy extends Component {
 
   render() {
     return (
-    <Image source={require('../images/background.png')} style={styles.container}>
+    <ImageBackground source={require('../images/background.png')} style={styles.container}>
 
       <Card>
         <CardSection style={styles.cardHeader}>
@@ -55,7 +55,7 @@ class Diplomacy extends Component {
         {Object.keys(this.props.user.factions).map(factionKey => this.renderFaction(this.props.user.factions[factionKey]))}
       </ScrollView>
 
-    </Image>
+    </ImageBackground>
     );
   }
 }

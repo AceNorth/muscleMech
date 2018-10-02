@@ -4,20 +4,16 @@ import _ from 'lodash';
 import { 
 	Text, 
 	View,
-	Image, 
+	ImageBackground, 
 	TouchableOpacity, 
-	PickerIOS,
 	ScrollView,
 	Modal,
-	TextInput
 } from 'react-native';
 import { Confirm, Card, CardSection } from './common';
 import { selectMission, addPiece, updatePiece } from '../reducers/UserState';
 import { Actions } from 'react-native-router-flux';
 
 import { Button } from './common/Button';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import firebase from 'firebase';
 
 class MissionSelector extends Component {
 
@@ -151,7 +147,7 @@ class MissionSelector extends Component {
 
 	render() {
 		return (
-			<Image source={require('../images/background.png')} style={styles.container}>
+			<ImageBackground source={require('../images/background.png')} style={styles.container}>
 				<ScrollView>
 
 					<Card>
@@ -200,7 +196,7 @@ class MissionSelector extends Component {
 		        <Text>ACCEPT THIS MISSION?</Text>
 		    </Confirm>
 
-			</Image>
+			</ImageBackground>
 		)
 	}
 

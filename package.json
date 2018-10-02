@@ -15,7 +15,7 @@
     "moment": "^2.18.1",
     "react": "16.0.0-alpha.12",
     "react-native": "0.47.2",
-    "react-native-background-timer": "^1.2.0",
+    "react-native-background-geolocation": "^2.13.4",
     "react-native-communications": "^2.2.1",
     "react-native-dotenv": "^0.1.0",
     "react-native-progress": "^3.4.0",

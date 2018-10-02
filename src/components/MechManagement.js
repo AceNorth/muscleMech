@@ -1,10 +1,8 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { Text, ImageBackground, ScrollView } from 'react-native';
 import { updateUser, updateMech } from '../reducers/UserState';
 import { Card, CardSection, Button } from './common';
-import { Actions } from 'react-native-router-flux';
 
 class CharacterManagement extends Component {
 
@@ -32,7 +30,7 @@ class CharacterManagement extends Component {
 
   render() {
     return (
-    <Image source={require('../images/background.png')} style={styles.container}>
+    <ImageBackground source={require('../images/background.png')} style={styles.container}>
       <ScrollView style={styles.container}>
 
       <Card>
@@ -76,7 +74,7 @@ class CharacterManagement extends Component {
         
       </Card>
       </ScrollView>
-    </Image>
+    </ImageBackground>
     );
   }
 }

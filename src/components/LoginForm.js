@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardSection, Input, Button, Spinner } from './common';
-import { Text, Image, View } from 'react-native';
+import { Text, ImageBackground, View } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../reducers/AuthState';
 
@@ -39,7 +39,7 @@ class LoginForm extends Component {
 
 	render() {
 		return (
-			<Image source={require('../images/background.png')} style={styles.container}>
+			<ImageBackground source={require('../images/background.png')} style={styles.container}>
 				<View style={{
 					paddingTop: 20,
 					flex: 1
@@ -84,7 +84,7 @@ class LoginForm extends Component {
 						</CardSection>
 					</Card>
 				</View>
-			</Image>
+			</ImageBackground>
 		)
 	}
 }

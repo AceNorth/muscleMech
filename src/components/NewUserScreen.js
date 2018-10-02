@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image, Modal } from 'react-native';
+import { Text, View, ImageBackground, Modal } from 'react-native';
 import { CardSection } from './common';
 import { connect } from 'react-redux';
 import { createUser, addPiece, setFactions } from '../reducers/UserState';
@@ -38,7 +38,6 @@ class NewUserScreen extends Component {
 
       // I guess splice() returns an array now? So get the element out of the returned array
       let randoFaction = allFactions.splice(rando, 1)[0];
-      console.log(randoFaction)
 
       // add it to the Diplomacy Object
       diplomacyObject[randoFaction] = 30 + Math.floor(Math.random() * 20);
@@ -81,7 +80,7 @@ class NewUserScreen extends Component {
 
 	render() {
 		return (
-			<Image source={require('../images/background.png')} style={styles.container}>
+			<ImageBackground source={require('../images/background.png')} style={styles.container}>
 				<View>
 					<ConfirmationModal
 						visible={this.state.showWelcomeModal}
@@ -106,7 +105,7 @@ class NewUserScreen extends Component {
           </Modal>
         </View>
 
-			</Image>
+			</ImageBackground>
 		)
 	}
 }
