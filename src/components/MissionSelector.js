@@ -212,7 +212,6 @@ const styles = {
     justifyContent: 'center'
   },
   textStyle: {
-    // flex: 1,
     fontSize: 16,
     textAlign: 'center',
     fontWeight: 'bold'

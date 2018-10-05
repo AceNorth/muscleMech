@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {
 	Text,
 	View,
+	TextInput,
 	KeyboardAvoidingView,
 	ImageBackground,
 	Switch,
@@ -136,16 +137,20 @@ class MissionDashboard extends Component {
     let type = error.type;
     let code = error.code;
     alert(type + " Error: " + code);
-  }
+	}
+	
   onActivityChange(activityName) {
     console.log('- Current motion activity: ', activityName);  // eg: 'on_foot', 'still', 'in_vehicle'
-  }
+	}
+	
   onProviderChange(provider) {
     console.log('- Location provider changed: ', provider.enabled);    
-  }
+	}
+	
   onMotionChange(location) {
     console.log('- [js]motionchanged: ', JSON.stringify(location));
-  }
+	}
+	
   onLocation(location) {
   	if (!this.state.currentCoordinates) {
   		let currentCoordinates = {x: location.coords.latitude, y: location.coords.longitude};
@@ -320,7 +325,7 @@ class MissionDashboard extends Component {
       minutes: newMinutes,
       hours: newHours
     });
-  	}
+  }
 
   stopRunning() {
   	if (this.state.localMission.currentStrength <= 0) {
@@ -430,7 +435,7 @@ class MissionDashboard extends Component {
     let newMission = this.state.localMission;
 		newUser.totalPower += this.state.totalPowerGenerated;
     // if the piece is a boss, restore its health to full
-    if (localUser.pieces[localUser.selectedMissionPieceUID].type === 'Boss') {
+    if (newUser.pieces[newUser.selectedMissionPieceUID].type === 'Boss') {
       newMission.currentStrength = newMission.maxStrength;
     }
 		this.setState({ 
@@ -638,57 +643,65 @@ class MissionDashboard extends Component {
 				buttonText={"Looks great amigo"}
         	>
         <Card>
-        <CardSection style={{
-          justifyContent:'center',
-          backgroundColor: '#ce42b7'
-        }}>
-          <Text style={styles.headerText}>HOW'S THIS LOOK MY MAN</Text>
-        </CardSection>
-        <CardSection style={styles.cardHeader}>
-          <Text style={styles.headerText}>Seconds</Text>
-        </CardSection>
-        <CardSection>
-					<Input
-						placeholder={this.state.seconds.toString()}
-						onChangeText={seconds => this.setState({seconds})}
-						value={this.state.seconds.toString()}	
+					<CardSection style={{
+						justifyContent:'center',
+						backgroundColor: '#ce42b7'
+					}}>
+						<Text style={styles.headerText}>EDIT RUN DETAILS</Text>
+					</CardSection>
+					<CardSection style={styles.runDetailsRow}>
+						<View style={styles.runDetailsLabel}>
+							<Text style={styles.labelText}>Seconds:</Text>
+						</View>
+						<TextInput
+							style={styles.runDetailsInput}
+							placeholder={this.state.seconds.toString()}
+							autoCorrect={false}
+							value={this.state.seconds.toString()}	
+							onChangeText={seconds => this.setState({seconds})}
 						/>
-				</CardSection>
-				<CardSection style={styles.cardHeader}>
-          <Text style={styles.headerText}>Minutes</Text>
-        </CardSection>
-        <CardSection>
-					<Input
-						placeholder={this.state.minutes.toString()}
-						onChangeText={minutes => this.setState({minutes})}
-						value={this.state.minutes.toString()}	
+					</CardSection>
+					<CardSection style={styles.runDetailsRow}>
+						<View style={styles.runDetailsLabel}>
+							<Text style={styles.labelText}>Minutes:</Text>
+						</View>
+						<TextInput
+							style={styles.runDetailsInput}
+							placeholder={this.state.minutes.toString()}
+							autoCorrect={false}
+							value={this.state.minutes.toString()}	
+							onChangeText={minutes => this.setState({minutes})}
 						/>
-				</CardSection>
-				<CardSection style={styles.cardHeader}>
-          <Text style={styles.headerText}>Hours</Text>
-        </CardSection>
-        <CardSection>
-					<Input
-						placeholder={this.state.hours.toString()}
-						onChangeText={hours => this.setState({hours})}
-						value={this.state.hours.toString()}	
+					</CardSection>
+					<CardSection style={styles.runDetailsRow}>
+						<View style={styles.runDetailsLabel}>
+							<Text style={styles.labelText}>Hours:</Text>
+						</View>
+						<TextInput
+							style={styles.runDetailsInput}
+							placeholder={this.state.hours.toString()}
+							autoCorrect={false}
+							value={this.state.hours.toString()}	
+							onChangeText={hours => this.setState({hours})}
 						/>
-				</CardSection>
-				<CardSection style={styles.cardHeader}>
-          <Text style={styles.headerText}>Distance (mi)</Text>
-        </CardSection>
-        <CardSection>
-					<Input
-						placeholder={this.state.distance.toString()}
-						onChangeText={distance => this.setState({distance})}
-						value={this.state.distance.toString()}	
+					</CardSection>
+					<CardSection style={styles.runDetailsRow}>
+						<View style={styles.runDetailsLabel}>
+							<Text style={styles.labelText}>Distance (mi):</Text>
+						</View>
+						<TextInput
+							style={styles.runDetailsInput}
+							placeholder={this.state.distance.toString()}
+							autoCorrect={false}
+							value={this.state.distance.toString()}	
+							onChangeText={distance => this.setState({distance})}
 						/>
-				</CardSection>
-				<CardSection style={{backgroundColor: "#ce42b7"}}>
-					<View>
-						<Text style={{fontSize: 20}}>AVERAGE PACE: {convertSecondsToPaceString(this.calculateSecondsPerMile())}/mile</Text>
-					</View>
-				</CardSection>
+					</CardSection>
+					<CardSection style={{backgroundColor: "#ce42b7"}}>
+						<View>
+							<Text style={styles.headerText}>AVERAGE PACE: {convertSecondsToPaceString(this.calculateSecondsPerMile())}/mile</Text>
+						</View>
+					</CardSection>
 				</Card>
 	    </ConfirmationModal>
 
@@ -721,19 +734,37 @@ class MissionDashboard extends Component {
 
 const styles = {
   container: {
+		display: 'flex',
     flex: 1,
-    // remove width and height to override fixed static size
-    width: null,
-    height: null,
-  },
+	},
+	runDetailsRow: {
+		display: 'flex',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+	},
+	runDetailsLabel: {
+		display: 'flex',
+		flex: 1,
+	},
+	runDetailsInput: {
+		display: 'flex',
+		flex: 1,
+		borderColor: 'gray',
+		borderWidth: 1,
+		borderStyle: 'solid',
+		padding: 5,
+	},
   cardHeader: {
     justifyContent: 'center',
     backgroundColor: "#000"
   },
   headerText: {
     color: '#fff',
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+	},
+	labelText: {
+		fontWeight: 'bold',
+	}
 }
 
 const mapStateToProps = state => {

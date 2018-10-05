@@ -199,20 +199,6 @@ class ReturningUserScreen extends Component {
     }
 	}
 
-	// updateFactionCountdowns(user, seconds) {
-	// 	let factionBases = user.factions;
- //    for (let key in factionBases) {
- //    	let currentBase = factionBases[key];
- //  		currentBase.currentCountdown -= seconds;
-	// 		while (currentBase.currentCountdown < 0) {
- //  			currentBase.countdownActions.forEach(action => {
- //          this.resolveCountdownActions(currentBase, user, action);
- //        })
- //  			currentBase.currentCountdown += currentBase.maxCountdown;
-	//   	}
- //    }
-	// }
-
   eliminateFaction(user, deadFactionKey) {
     if (deadFactionKey === 'Player') {
       user.gameOver = true;
@@ -290,30 +276,6 @@ class ReturningUserScreen extends Component {
         newPiece.uid = newPieceUid;
         user.pieces[newPieceUid] = newPiece;
 				return;
-			// case "GAIN_MILITARY_POINTS":
-			// 	piece.currentMilitaryPoints += piece.militaryPointsPerDay;	
-			// 	piece.militaryPointsPerDay += piece.growthRate;
-			// 	piece.countdownActions.push({
-			// 		type: "GAIN_MILITARY_POINTS",
-			// 		payload: '',
-			// 		message: ''
-			// 	});
-			// 	return;
-      // case 'TRANSFER_MILITARY_POINTS':
-      //   // the winner gains MP equal to their attack's strength * 100
-      //   // the loser loses that many points, less their defense level * 100
-        // const loser = user.factions[action.loserKey].currentMilitaryPoints;
-      //   const MPlost = action.payload - (loser.defenseLevel * 100);
-      //   if (MPlost < 0) MPlost = 0;
-
-      //   user.factions[action.loserKey].currentMilitaryPoints -= action.payload;
-      //   if (user.factions[action.loserKey].currentMilitaryPoints <= 0) {
-      //     this.eliminateFaction(user, action.loserKey);
-      //   }
-
-      //   user.factions[action.winnerKey].currentMilitaryPoints += action.payload;
-      //   updateMessages.push(action.message);
-      //   return;
       case 'DAMAGE_TARGET':
         const loser = user.factions[action.loserKey];
         const winner = user.factions[action.winnerKey]
@@ -363,18 +325,6 @@ class ReturningUserScreen extends Component {
         user.factions[piece.factionKey].defenseLevel += action.payload;
         updateMessages.push(action.message);
         return;
-      // case 'MILITARY_POINT_BOOST':
-      //   user.factions[piece.factionKey].currentMilitaryPoints += action.payload;
-      //   updateMessages.push(action.message);
-      //   return;
-      // case 'MILTARY_POINTS_PER_DAY_UP':
-      //   user.factions[piece.factionKey].militaryPointsPerDay += action.payload;
-      //   updateMessages.push(action.message);
-      //   return;
-      // case 'GROWTH_RATE_UP':
-      //   user.factions[piece.factionKey].militaryPointsPerDay += action.payload;
-      //   updateMessages.push(action.message);
-      //   return;
       case 'CONSTRUCT_BUILDING':
         user.factions[piece.factionKey].buildingsConstructed[action.buildingKey] = true;
         updateMessages.push(action.message);

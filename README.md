@@ -24,9 +24,9 @@ The main screen shows New Playerville, your current POWER (for upgrading stuff -
 
 You may also purchase BASE UPGRADES that unlock new sidequests and missions, and/or guide the future destiny of your colonists.
 
-***THE WORLD MAP***
+***AVAILABLE MISSIONS***
 
-The WORLD MAP screen shows all the world events that you're aware of. Click on an enemy army or sidequest to see a list of MISSIONS that you can undertake - you will often have multiple choices about how to address a situation.
+The AVAILABLE MISSIONS screen shows all the world events that you're aware of. Click on an enemy army or sidequest to see a list of MISSIONS that you can undertake - you will often have multiple choices about how to address a situation.
 
 New events will pop up every day. Each event only sticks around for a few days, and once their timer runs out there may be conequences you don't want - so make sure to prioritize which events you want to tackle!
 

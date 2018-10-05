@@ -27,14 +27,14 @@ const RouterComponent = () => {
 	          key="baseManagement" 
 	          component={BaseManagement}
 	          onRight={() => Actions.missionSelector()} 
-	          rightTitle="World Map"
+	          rightTitle="Available Missions"
 	          onLeft={() => Actions.mechManagement()}
 	          leftTitle="Mech Garage"
 	        />
 					<Scene 
 						key="missionSelector" 
 						component={MissionSelector} 
-						title="World Map"
+						title="Available Missions"
 						/>
 					<Scene 
 						key="mission" 

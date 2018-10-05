@@ -4,10 +4,11 @@ import { CardSection } from './common/CardSection';
 import { Button } from './common/Button';
 
 const ConfirmationModal = ({ children, visible, onAccept, buttonText, onRequestClose}) => {
-  const { containerStyle, textStyle, cardSectionStyle } = styles;
+  const { containerStyle, cardSectionStyle } = styles;
 
   return (
     <Modal
+      style={{display: 'flex'}}
       visible={visible}
       transparent
       animationType="fade"
@@ -28,19 +29,15 @@ const ConfirmationModal = ({ children, visible, onAccept, buttonText, onRequestC
 
 const styles = {
   cardSectionStyle: {
+    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
   },
-  textStyle: {
-    flex: 1,
-    fontSize: 18,
-    textAlign: 'center',
-    lineHeight: 40
-  },
   containerStyle: {
+    display: 'flex',
+    flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.75)',
     position: 'relative',
-    flex: 1,
     justifyContent: 'center'
   }
 };
