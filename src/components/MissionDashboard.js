@@ -11,7 +11,7 @@ import {
 import { connect } from 'react-redux';
 import { Button, Card, Input, CardSection } from './common/index';
 import { logRun } from '../reducers/RunState';
-import { fetchUser, updateUser, updateMech, removePiece, addPiece } from '../reducers/UserState';
+import { updateUser, updateMech, removePiece, addPiece } from '../reducers/UserState';
 import { ConfirmationModal } from './ConfirmationModal';
 import { Actions } from 'react-native-router-flux';
 import { convertSecondsToPaceString } from './Utilities/Utilities';
@@ -427,15 +427,22 @@ class MissionDashboard extends Component {
         missionCompleteMessages.push('All other factions have been eliminated! You win I guess, you monster')
       }
     }
-  }
+	}
+	
+	pieceIsBoss(user, pieceUID) {
+		if (!user.pieces) return false;
+		if (pieceUID === 'Expedition') return false;
+		return user.pieces[newUser.selectedMissionPieceUID].type === 'Boss'
+	}
 
 	handleLose() {
 		this.stopTimer();
 		let newUser = this.state.localUser;
     let newMission = this.state.localMission;
 		newUser.totalPower += this.state.totalPowerGenerated;
-    // if the piece is a boss, restore its health to full
-    if (newUser.pieces[newUser.selectedMissionPieceUID].type === 'Boss') {
+		// if the piece is a boss, restore its health to full
+		
+    if (this.pieceIsBoss(newUser, newUser.selectedMissionPieceUID)) {
       newMission.currentStrength = newMission.maxStrength;
     }
 		this.setState({ 
@@ -772,4 +779,4 @@ const mapStateToProps = state => {
   return { user };
 };
 
-export default connect(mapStateToProps, { logRun, fetchUser, updateUser, updateMech, addPiece, removePiece })(MissionDashboard);
+export default connect(mapStateToProps, { logRun, updateUser, updateMech, addPiece, removePiece })(MissionDashboard);

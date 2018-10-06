@@ -1,20 +1,19 @@
 import React, {Component} from 'react';
-import { Text, View, ImageBackground, ScrollView, Modal } from 'react-native';
-import { CardSection } from './common/CardSection';
+import { Text, View, ImageBackground, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { 
-	fetchUser, 
+
+import { Spinner } from './common';
+
+import {
 	updateUser,
 	updatePiece,
 	addPiece
 } from '../reducers/UserState';
 import {
-  generateBase,
   generateAttack,
   generateDiplomacy,
   buildBoss
 } from './Utilities/Generators';
-import * as FactionLibrary from './GameLibraries/FactionLibrary';
 import FactionBuildings from './GameLibraries/FactionBuildings';
 import Sidequests from './GameLibraries/SidequestLibrary';
 import { fetchRuns } from '../reducers/RunState';
@@ -37,7 +36,6 @@ class ReturningUserScreen extends Component {
 	}
 
 	componentDidMount() {
-		this.props.fetchUser();
 		this.props.fetchRuns();
 	}
 
@@ -352,7 +350,8 @@ class ReturningUserScreen extends Component {
 	}
 
 	render() {
-		return (
+    return this.props.user.userFetched ?
+		(
 			<ImageBackground source={require('../images/background.png')} style={styles.container}>
 				<View>
 					<ConfirmationModal
@@ -368,7 +367,8 @@ class ReturningUserScreen extends Component {
 
 				</View>
 			</ImageBackground>
-		)
+    ) :
+    <Spinner size='large' />
 	}
 }
 
@@ -398,8 +398,9 @@ const styles = {
 }
 
 const mapStateToProps = state => {
-  const user = state.user;
-  return { user };
+  return {
+    user: state.user,
+  };
 };
 
-export default connect(mapStateToProps, { addPiece, updatePiece, fetchUser, updateUser, fetchRuns })(ReturningUserScreen);
+export default connect(mapStateToProps, { addPiece, updatePiece, updateUser, fetchRuns })(ReturningUserScreen);

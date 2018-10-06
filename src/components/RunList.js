@@ -1,18 +1,13 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ListView, Text, ImageBackground, View } from 'react-native';
-import { fetchRuns } from '../reducers/RunState';
-import { fetchUser } from '../reducers/UserState';
+import { ListView, Text, ImageBackground } from 'react-native';
 import { Card, CardSection } from './common';
 import { convertSecondsToPaceString } from './Utilities/Utilities';
 
 class RunList extends Component {
 
   componentWillMount() {
-    this.props.fetchRuns();
-    this.props.fetchUser();
-
     this.createDataSource(this.props);
   }
 
@@ -110,4 +105,4 @@ const mapStateToProps = state => {
   return { runs, user };
 };
 
-export default connect(mapStateToProps, { fetchRuns, fetchUser })(RunList);
+export default connect(mapStateToProps, {})(RunList);

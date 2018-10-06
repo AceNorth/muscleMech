@@ -1,6 +1,8 @@
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 
+import { fetchUser } from './UserState';
+
 const INITIAL_STATE = { 
 	email: '', 
 	password: '', 
@@ -36,7 +38,7 @@ export const loginUser = ({ email, password}) => {
 
 		firebase.auth().signInWithEmailAndPassword(email, password)
 			.then(user => loginUserSuccess(dispatch, user))
-			.catch(() => {
+			.catch((err) => {
 				firebase.auth().createUserWithEmailAndPassword(email, password)
 					.then(user => {
 						loginNewUserSuccess(dispatch, user)})
@@ -58,6 +60,7 @@ const loginUserSuccess = (dispatch, user) => {
 		type: LOGIN_USER_SUCCESS,
 		payload: user
 	});
+	dispatch(fetchUser());
 	Actions.returningUser();
 };
 
@@ -66,6 +69,7 @@ const loginNewUserSuccess = (dispatch, user) => {
 		type: LOGIN_USER_SUCCESS,
 		payload: user
 	});
+	dispatch(fetchUSer())
 	Actions.newUser();
 };
 

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, ImageBackground, View, ScrollView, Modal } from 'react-native';
 import { updatePiece, updateUser, updateFaction } from '../reducers/UserState';
-import { fetchUser } from '../reducers/UserState';
-import { fetchRuns } from '../reducers/RunState';
 import { Card, CardSection, Button } from './common';
 import { Actions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -24,11 +22,6 @@ class BaseManagement extends Component {
         HP: 1
       }
     }
-  }
-
-  componentWillMount() {
-    this.props.fetchUser();
-    this.props.fetchRuns();
   }
 
   componentDidMount() {
@@ -299,4 +292,4 @@ const mapStateToProps = state => {
   return { user };
 };
 
-export default connect(mapStateToProps, { updatePiece, updateUser, updateFaction, fetchRuns, fetchUser })(BaseManagement);
+export default connect(mapStateToProps, { updatePiece, updateUser, updateFaction })(BaseManagement);

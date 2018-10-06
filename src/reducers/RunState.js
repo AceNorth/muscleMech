@@ -14,8 +14,9 @@ export const FETCH_RUNS_SUCCESS = 'FETCH_RUNS_SUCCESS';
 export const logRun = ( date, duration, distance, pace ) => {
 	const { currentUser } = firebase.auth();
 	return (dispatch) => {
-	firebase.database().ref(`/users/${currentUser.uid}/runs`)
-		.push( {date, duration, distance, pace} )
+		firebase.database().ref(`/users/${currentUser.uid}/runs`)
+			.push( {date, duration, distance, pace} )
+			.then(() => dispatch(fetchRuns()))
 	};
 };
 

@@ -38,11 +38,11 @@ Once you press START, the app will track your location and update your distance 
 
 Every MINUTE you run, you generate POWER. You also earn POWER for every quarter mile you run! This is great because you can spend it on stuff!
 
-Every MINUTE you'll ALSO deal damage to your opponent and they'll deal damage to you! You deal damage based on your BOOST LEVEL. As you earn power, your BOOST LEVEL will increase and you'll deal more damage!
+Every MINUTE you'll ALSO deal damage to your opponent, getting you closer to winning the mission! You deal damage based on your BOOST LEVEL. As you earn power, your BOOST LEVEL will increase and you'll deal more damage!
 
 If you reduce your enemy's health to 0, you win the mission! You can keep running for as long as you like!
 
-If you don't manage to complete the mission, that's ok! You still keep your accumulated power and can attempt the mission again later if there's time.
+If you don't manage to complete the mission, that's ok! You still keep your accumulated power and can attempt the mission again later if you like.
 
 Once you're done running, press "Done". You can alter any of your running stats in case there was an error (but this won't change your points, so it isn't cheating!). Then your run will be saved in your personal RUN DATABASE.
 

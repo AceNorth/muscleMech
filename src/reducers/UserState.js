@@ -23,6 +23,8 @@ const INITIAL_STATE = {
 	availableSidequests: SidequestPacks,
 	expeditions,
 
+	userFetched: false,
+
 	// has the player won or lost the current game
 	gameOver: false
 
@@ -147,6 +149,7 @@ export default (state = INITIAL_STATE, action) => {
 			newState.currentMech = Object.assign({}, newState.currentMech, action.payload)
 			return newState;
 		case FETCH_USER_SUCCESS:
+			newState.userFetched = true;
 			return Object.assign({}, newState, action.payload);
 		case SELECT_MISSION:
 			return { ...state,
